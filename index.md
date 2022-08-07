@@ -183,7 +183,7 @@ ___
 [![Milestone 2 Video](https://res.cloudinary.com/marcomontalbano/image/upload/v1625876159/video_to_markdown/images/youtube--NUQF3P64RwM-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://youtu.be/NUQF3P64RwM "Milestone 2 Video")
 <HTML>
 
- <img src="images/Scanner.jpg" width=250 align=right style="float:right; padding-right:10px">  
+ <img src="images/Adafruit.jpeg" width=250 align=right style="float:right; padding-right:10px">  
 
 </HTML>
 
@@ -192,10 +192,11 @@ During my second milestone I tested the fingerprint scanner, added a buzzer to p
 
 <HTML>
 
- <img src="images/Oldservo.jpg" width=300 align=right style="float:right; padding-right:10px">  
+ <img src="images/.jpg" width=300 align=right style="float:right; padding-right:10px">  
  
 
-The steps I took during this milestone start with calibrating the fingerprint sensor to record and store my fingerprint. Before doing so, I first attached the corresponding pins to the Arduino. I used a code found on the Arduino IDE called “enroll” that gave prompts on the serial monitor telling me when I should place my finger in order for it to be recorded. After having my fingerprint stored in the scanner, I found a code online that could be used to turn a servo when the correct fingerprint is sensed. I modified the code to include the correct pins so it only went through my code once. After learning about how the fingerprint sensor worked, I decided to combine the code of that sensor with the RFID’s code. I copied the code for the fingerprint scanner into a new file of code because it seemed a bit more complex than the code for the RFID. I added the elements of RFID code including libraries, the tag’s identification number, and the "if" statement that made a servo turn when the correct tag was sensed. I was confused on how to combine the codes, so I tried the first idea that I thought of, which is creating an "if" statement with simply two conditions instead of one, but this idea did not work. So I began manipulating my code to where you had to scan the RFID card and place your finger on the sensor simultaneously in order for the servo to turn. In order to make the fingerprint sensor and RFID not have to work simultaneously, I instead had to make it where a variable becomes true when the first condition is met, then make another if statement stating that if the variable is true to turn on the next sensor. 
+The steps I took during this milestone start with calibrating the fingerprint sensor to record and 
+store my fingerprint. Before doing so, I first attached the corresponding pins to the Arduino. I used a code found on the Arduino IDE called “enroll” that gave prompts on the serial monitor telling me when I should place my finger in order for it to be recorded. After having my fingerprint stored in the scanner, I found a code online that could be used to turn a servo when the correct fingerprint is sensed. I modified the code to include the correct pins so it only went through my code once. After learning about how the fingerprint sensor worked, I decided to combine the code of that sensor with the RFID’s code. I copied the code for the fingerprint scanner into a new file of code because it seemed a bit more complex than the code for the RFID. I added the elements of RFID code including libraries, the tag’s identification number, and the "if" statement that made a servo turn when the correct tag was sensed. I was confused on how to combine the codes, so I tried the first idea that I thought of, which is creating an "if" statement with simply two conditions instead of one, but this idea did not work. So I began manipulating my code to where you had to scan the RFID card and place your finger on the sensor simultaneously in order for the servo to turn. In order to make the fingerprint sensor and RFID not have to work simultaneously, I instead had to make it where a variable becomes true when the first condition is met, then make another if statement stating that if the variable is true to turn on the next sensor. 
 
 <img src="images/buzzer.jpg" width=325 align=right style="float:right; padding-right:10px">  
 
@@ -257,7 +258,18 @@ ___
 </HTML> 
 
 
-During my first milestone I tested the servo motor with a simple sweep code found on the Arduino IDE, set up the RFID sensor to sense the RFID tag with its unique identification number, and lastly integrated these two parts together to create a circuit where when the correct RFID tag is sensed, the servo motor turns 90 degrees. The main parts that were involved in the milestone are an Arduino microcontroller, a servo motor, and a RFID sensor with a RFID tag. An Arduino is a microcontroller which means it is essentially the brains of the circuit as it is where code is uploaded to and the component that sends and receives data from the various inputs and outputs that are connected to the Arduino. Without the Arduino, all of the sensors and outputs would be unable to work and communicate with each other. The servo motor is similar to a regular motor, but it cannot make a full 360 degree turn, it can only swing back and forth, which is important for my project as the servo acts as the locking mechanism, therefore I really only want it to move 90 degrees. The RFID sensor uses radio frequency to sense and identify an RFID tag. Each RFID tag has a unique identification number that allows it to be sensed and read. This is important for my project because if the correct RFID tag is read, this information is sent to the Arduino and back out to the servo in order for it to turn 90 degrees. The circuit works by first sensing any RFID tag that comes into close contact with it, and either accepting or rejecting the card based on its unique identification number. Next this information is sent back to the Arduino which processes it and either prints on the serial monitor “Wrong Card” or prints “Correct Card” and if the correct card is sensed, the Arduino tells the servo to turn 90 degrees which is what will unlock the safe box in the final project. 
+**Milestone 1 Video**
+<br>
+<br>
+  [![Milestone 1 Video](https://user-images.githubusercontent.com/110252095/183277001-f124d9a3-5131-4ac8-a013-08fb70ff1737.jpeg)](https://youtu.be/ssd7OVwMDoo "Milestone 1 Video")
+<br>
+<br>
+During my first milestone, I built a fingerprint scanner which uploads the fingerprints as templates and verifies to check matching and displays the message in output if its matched or not. This module has FLASH memory for storing fingerprints, and can be used with any microcontroller or system with a TTL serial interface, and can be added to security systems, door locks, time and attendance systems, and so on. Some of the main components include the Arduino microcontroller and fingerprint scanner. The Arduino microcontroller is the center of the circuit as the code is uploaded and the components which sends and recieves data. The easiest way to control the fingerprint sensor module with Arduino is to use the sensor's Adafruit library. The fingerprint sensor module used in this project has wires of the same color, so it is necessary to distinguish the wire and connect to Arduino board accordingly. <br>
+VCC-Red wire - Connect to 5V <br>
+RX-Green wire - Pin 2 <br>
+TX-White wire - Pin 3 <br>
+GND-Black wire - GND <br>
+The easiest way to control the fingerprint sensor module with Arduino is to use the sensor's Adafruit library. Connect the fingerprint sensor module to the Arduino. To enroll select the template number and scan your finger, rescan again to make sure its gets stored properly. If the finger module couldn't scan the fingerprint properly due to Image failures or packet receive error it throws the serial output message accordingly. The template number where the fingerprint scan is stored would be given with in the serial output. To verify the fingerprint, run the Fingerprint_verify program to check the fingerprint matches. If the fingerprint matches it gives the template number and gives the output as match found. Sometimes, if your fingers are not placed correctly as they were saved, the sensor can hardly recognize it. Place your finger slowly on the scanner, so that the sensor will work better. 
 
 
 <HTML>
@@ -270,15 +282,12 @@ During my first milestone I tested the servo motor with a simple sweep code foun
 
 
 
-The steps I took during my first milestone began with connecting the servo to the Arduino. The servo had three wires attached to it, one for power, ground, and the third wire is where information travels that tells the servo how far it should move left or right. After attaching the wires to their corresponding pins on the Arduino, I found code on the Arduino IDE that swings the servo which I used to test the servo. This code uses a “for loop” to ensure that the servo moves a certain amount of degrees, then returns back to its original position. I ran into a minor issue with uploading the code to my Arduino, but it was simply a privacy issue. 
-
-
 <HTML>
 
  <img src="images/IMG_9712.jpg" width=200 align=right style="float:right; padding-right:10px">  
 
 </HTML>
-After testing the servo, I moved onto the other major component which is the RFID reader. Before I could test it, I first soldered the pins that came with the RFID sensor to it so I could attach jumper wires and connect those to the Arduino. Once the sensor was connected to the Arduino I decided to test it to eventually have the RFID sensor trigger the servo to move 90 degrees. I found code online that was similar to my goal of using the RFID to turn on a servo, but I had to first download an external library which I never have done before. After learning how to do so by downloading and moving files I eventually successfully downloaded the RFID library needed for the code to work. In order for the code to be compatible with my RFID tag, I had to have the RFID sensor read the tag to print the tag’s unique identification number on the serial monitor. I inputted the identification number into my code so that my card will be read as the correct card when sensed. After doing so, I also manipulated other parts of the code in order to ensure the servo turned correctly. Finally I tested the code, and it was a success where when the RFID tag was sensed by the reader, the servo turned 90 degrees. After testing this circuit I realized that I had no way to return the servo back to the locked position, so I added a reset button which would reset the code and bring everything back to where it was before the code had run where the servo was in the lock position.
+
 
 [RFID & Servo Code](images/RFIDServo.ino)
 
@@ -322,47 +331,21 @@ ___
 
 
 # Materials
-
-1.Arduino
+-  Arduino
+-  4-Channel Relay Module
+-  12V Solenoid Lock
+-  Fingerprint Scanner
+-  Copper Board
+-  LCD Display
+-  Breadboard
+-  12V Battery
+-  Led Light (1)
+-  Resistor 220 Ohms (1)
+-  Jumper Wires (Many)
+-  USB Cable
+-  Wood Slab
+-  Tape
 <br>
-2.RFID Scanner
-<br>
-3.RFID Tags (2)
-<br>
-4.Fingerprint Scanner
-<br>
-5.Piezo Buzzer
-<br>
-6.LCD Display
-<br>
-7.I2C LCD adapter
-<br>
-8.Voice Recognition Module
-<br>
-9.Led Lights (4)
-<br>
-10.Resistors (4)
- <br>
-11.Jumper Wires (Many)
-<br>
-12.Arduino Power Adapter
-<br>
-13.Sound Sensor
-<br>
-14.Button
-<br>
-15.Servo
-<br>
-16.Servo Housing Bracket
-<br>
-17.Pine Wood
-<br>
-18.Hinges (2)
-<br>
-19.Perf Boards (2)
-<br>
-20.Header Pins (3)
-
 
 
 
