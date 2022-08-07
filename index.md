@@ -272,9 +272,12 @@ GND-Black wire - GND <br>
 The easiest way to control the fingerprint sensor module with Arduino is to use the sensor's Adafruit library. Connect the fingerprint sensor module to the Arduino. To enroll select the template number and scan your finger, rescan again to make sure its gets stored properly. If the finger module couldn't scan the fingerprint properly due to Image failures or packet receive error it throws the serial output message accordingly. The template number where the fingerprint scan is stored would be given with in the serial output. To verify the fingerprint, run the Fingerprint_verify program to check the fingerprint matches. If the fingerprint matches it gives the template number and gives the output as match found. Sometimes, if your fingers are not placed correctly as they were saved, the sensor can hardly recognize it. Place your finger slowly on the scanner, so that the sensor will work better. 
 
 
+<HTML>
 
+ <img src="images/Adafruit.jpeg" width=200 align=right style="float:right; padding-right:10px">  
 
-![Adafruit Fingerprint Sensor](https://www.distrelec.biz/Web/WebShopImages/landscape_large/0-/01/Adafruit-751-30139250-01.jpg)
+</HTML>
+
 
   
 <br>
